@@ -15,7 +15,13 @@ GestorArchivosPython/
 │
 ├── app/
 │   ├── app.py                   # Punto de entrada principal
+│   ├── controlador_usuarios.py  # Lógica entre Tkinter y la base de datos
 │
 ├── database/
+│   ├── __init__,py            # Indicador de modulo importable
 │   ├── conexion.py            # Conexión a MySQL
 │   └── usuarios.py            # Consultas SQL (CRUD)
+│
+└── interfaces/
+    └── vista_usuarios.py      # Ventanas Tkinter
+

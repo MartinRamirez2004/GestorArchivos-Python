@@ -1,25 +1,19 @@
-#Importacion a la libreria de MySQL
-import mysql.connector as mysql
+import mysql.connector
 
-#Funcion encargada de la conexion a la base de datos
-def conexion_bd():
-    try:
+class ConexionDB:
+    def __init__(self):
+        try:
+            self.conexion = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="",
+                database="pythonapp"
+            )
+            self.cursor = self.conexion.cursor()
+            print("Conexión exitosa a MySQL")
+        except mysql.connector.Error as err:
+            print(f'Error al conectar a la base de datos: {err}')
 
-        #Seccion encargada a la conexion de la base de datos
-        conexion = mysql.connect(
-            host="localhost",
-            user="root",
-            password="",
-            database="pythonapp"
-        )
-        #Imprimira si la conexion fue exitosa
-        print("Conexion exitosa")
-        return conexion
-
-    #En caso de errores 
-    except mysql.connector.Error as error:
-        print("Error al conectar a la base de datos local")
-        print(error)
-        return None
-
-conexion_bd()
+    def cerrar(self):
+        self.cursor.close()
+        self.conexion.close()
