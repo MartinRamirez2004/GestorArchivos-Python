@@ -1,0 +1,21 @@
+Creacion de una aplicacion de escritorio para la gestion de archivos en una red local.
+
+
+Acerca de la Arquitectura:
+Se uso una arquitectura MVC (Modelo vista-controlador) ya que es ideal para Tkinter + MySQL,
+porque separa la lógica de la base de datos, la interfaz y el control de la aplicación.
+
+Divide el codigo en 3 partes:
+Modelo → maneja la base de datos (MySQL)
+Vista → maneja la interfaz gráfica (Tkinter)
+Controlador → conecta ambos (coordinando las acciones del usuario con la base de datos)
+
+Estructura Realizada:
+GestorArchivosPython/
+│
+├── app/
+│   ├── app.py                   # Punto de entrada principal
+│
+├── database/
+│   ├── conexion.py            # Conexión a MySQL
+│   └── usuarios.py            # Consultas SQL (CRUD)
